@@ -1,12 +1,12 @@
 package com.maciejkozlowski.constraintlayoutperformance
 
-import android.support.annotation.LayoutRes
-import android.support.test.InstrumentationRegistry.getInstrumentation
-import android.support.test.runner.AndroidJUnit4
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.LayoutRes
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
 import org.junit.Test
 import org.junit.runner.RunWith
 import kotlin.system.measureNanoTime
@@ -54,8 +54,10 @@ class LayoutTest {
         for (i in 0 until REPEATS) {
             layoutInflater.inflate(layoutRes, null).apply {
                 layoutParams = ViewGroup.LayoutParams(0, 0)
-                measure(View.MeasureSpec.makeMeasureSpec(1000, View.MeasureSpec.EXACTLY),
-                        View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED))
+                measure(
+                    View.MeasureSpec.makeMeasureSpec(1000, View.MeasureSpec.EXACTLY),
+                    View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+                )
                 layout(0, 0, measuredWidth, measuredHeight)
             }
         }

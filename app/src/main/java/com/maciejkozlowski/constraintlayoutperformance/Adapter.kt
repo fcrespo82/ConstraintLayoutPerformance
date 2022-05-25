@@ -1,9 +1,9 @@
 package com.maciejkozlowski.constraintlayoutperformance
 
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 
 /**
  * Created by Maciej Kozłowski on 24.11.2018.

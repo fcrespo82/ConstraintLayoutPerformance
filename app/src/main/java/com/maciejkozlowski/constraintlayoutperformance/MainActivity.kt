@@ -1,18 +1,21 @@
 package com.maciejkozlowski.constraintlayoutperformance
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.activity_main.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import java.util.*
+
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         setContentView(R.layout.activity_main)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = Adapter(getList())
+        (recyclerView).layoutManager = LinearLayoutManager(this)
+        (recyclerView).adapter = Adapter(getList())
     }
 
     private fun getList(): List<String> {
